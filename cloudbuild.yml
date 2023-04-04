@@ -10,7 +10,7 @@ steps:
       - beta
       - functions
       - deploy
-      - my-function
+      - function-first
       - --runtime=nodejs14
       - --trigger-http
       - --allow-unauthenticated
