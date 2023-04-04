@@ -1,0 +1,25 @@
+steps:
+  # Install dependencies
+  - name: node
+    entrypoint: npm
+    args: ['install']
+
+  # Build the Cloud Function
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - beta
+      - functions
+      - deploy
+      - my-function
+      - --runtime=nodejs14
+      - --trigger-http
+      - --allow-unauthenticated
+      - --entry-point=handler
+      - --source=.
+
+  # Display the Cloud Function URL
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - functions
+      - describe
+      - my-function
