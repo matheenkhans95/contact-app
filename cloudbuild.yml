@@ -22,4 +22,4 @@ steps:
     args:
       - functions
       - describe
-      - my-function
+      - function-first
